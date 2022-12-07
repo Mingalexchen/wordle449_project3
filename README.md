@@ -104,8 +104,8 @@ Files to turn in:
 
 #Sample Test Cases Using httpie:
 
-- registering an new account
-    command
+- registering an new account   
+  command:   
     http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
 
 sample result
@@ -123,30 +123,30 @@ sample result
   	}
 
   In tutorial.txt, and update nginx config again.
-
-  The command would now be
-  http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
+   
+   The command would now be   
+   http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
 
 Sample result
 ![image](https://user-images.githubusercontent.com/54679891/206137019-76929821-8ad6-4660-a656-fea1da2164e0.png)
 
 
--post a score to redis 
-  command:
+- post a score to redis   
+  command:   
   http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
 
 sample result
 ![image](https://user-images.githubusercontent.com/54679891/206151156-5ad7ce80-8668-442e-92bf-817c0fc4b58a.png)
 
--retrive top ten score
-  command
+- retrive top ten score   
+  command:   
   http get http://tuffix-vm/top-ten/
 
 sample result
 ![image](https://user-images.githubusercontent.com/54679891/206151575-095e0265-19eb-416b-9dca-80c6fec3ac76.png)
 
--start a new game
-  command
+- start a new game   
+  command:   
   http post http://Alex:449@tuffix-vm/new-game/
   
 sample result  
