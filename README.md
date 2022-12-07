@@ -1,13 +1,13 @@
 # Wordle Backend Project 3
 -------------------------------------------------
-Test case examples are not provided in the tar. 
+<mark>Test case examples are not provided in the tar. 
 If you want to test endpoints without looking
-into the code, refer to the end of this readme.
+into the code, refer to the end of this readme.</mark>
 -------------------------------------------------
 
 Group 3 team members:
-Ming Chen
-Nolan O'Donnell
+Ming Chen  
+Nolan O'Donnell  
 Henry Chen
 
 Steps to run the project:
