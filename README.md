@@ -155,8 +155,8 @@ sample result
 we can see that data is then being backuped in replica dbs
   ![image](https://user-images.githubusercontent.com/54679891/206152943-4dd2b0ec-4213-4eca-afad-4d8648e2882b.png)
 
--make a move 
-  command:
+- make a move    
+  command:   
   http post http://Alex:449@tuffix-vm/game-guess/ "gameid"="7b4f3128-1449-4d52-b569-2a521c2be0e9" "word"="clomp"
 
   Note: you will need to use an id that exist in your db to make a move. 
@@ -172,14 +172,14 @@ we can see that data is then being backuped in replica dbs
   Due to the purpose of this project and time constrain, I did not try to
   fix this issue in afraid of causing more bugs that are hard to fix.
 
--retrive in progress games
+- retrive in progress games   
   command:   
   http get http://Alex:449@tuffix-vm/get-user-games/
   
   sample result:
   ![image](https://user-images.githubusercontent.com/54679891/206166526-5955bb23-1acc-4eca-94d2-35833dea3b10.png)
 
--get game status by id
+- get game status by id   
   command:   
   http get http://Alex:449@tuffix-vm/grab-game-by-id/7b4f3128-1449-4d52-b569-2a521c2be0e9
   
