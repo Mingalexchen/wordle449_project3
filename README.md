@@ -105,17 +105,16 @@ Files to turn in:
 #Sample Test Cases Using httpie:
 
 -registering an new account
-command
-http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
+  command
+  http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
 
-sample output
+sample result
 ![image](https://user-images.githubusercontent.com/54679891/206137205-71d502ab-4fb2-43a7-b6db-5f5b2bcf1736.png)
 
+  Use this account for auth afterwards.
 
-Use this account for auth afterwards.
-
-If you wish to access this endpoint as tuffix-vm/register/ without having to 
-use auth, remove 
+  If you wish to access this endpoint as tuffix-vm/register/ without having to 
+  use auth, remove 
 
 	location / {
 		#login popup
@@ -123,31 +122,69 @@ use auth, remove
 		auth_request_set $auth_status $upstream_status;
   	}
 
-In tutorial.txt, and update nginx config again.
+  In tutorial.txt, and update nginx config again.
 
-The command would now be
-http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
+  The command would now be
+  http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
 
-Sample output
-
+Sample result
 ![image](https://user-images.githubusercontent.com/54679891/206137019-76929821-8ad6-4660-a656-fea1da2164e0.png)
 
 
 -post a score to redis 
-command
-http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
+  command
+  http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
 
-sample output
+sample result
 ![image](https://user-images.githubusercontent.com/54679891/206151156-5ad7ce80-8668-442e-92bf-817c0fc4b58a.png)
 
 -retrive top ten score
-command
-http get http://tuffix-vm/top-ten/
+  command
+  http get http://tuffix-vm/top-ten/
 
-sample output
+sample result
 ![image](https://user-images.githubusercontent.com/54679891/206151575-095e0265-19eb-416b-9dca-80c6fec3ac76.png)
 
+-start a new game
+  command
+  http post http://Alex:449@tuffix-vm/new-game/
+  
+sample result  
+![image](https://user-images.githubusercontent.com/54679891/206152409-3f8f3c1a-d594-41fc-aa5b-f8ee7e7fe6d9.png)
 
+we can see that data is then being backuped in replica dbs
+  ![image](https://user-images.githubusercontent.com/54679891/206152943-4dd2b0ec-4213-4eca-afad-4d8648e2882b.png)
 
+-make a move 
+  command:
+  http post http://Alex:449@tuffix-vm/game-guess/ "gameid"="7b4f3128-1449-4d52-b569-2a521c2be0e9" "word"="clomp"
 
+  Note: you will need to use an id that exist in your db to make a move. 
+  Using this command directly is very unlikely to give the same result.
+  
+  sample result:
+![image](https://user-images.githubusercontent.com/54679891/206163126-04c86b3b-40f1-4eca-8989-07e19d2638b0.png)
+
+  Note2: original contributor of this project did not implement valid and
+  correct word in the way it should be. API never checks if guess is a correct 
+  word and only checks if guess is the answer or if guess is a valid word. 
+  You may check this in game.py line 213-263.
+  Due to the purpose of this project and time constrain, I did not try to
+  fix this issue in afraid of causing more bugs that are hard to fix.
+
+-retrive in progress games
+  command:
+  http get http://Alex:449@tuffix-vm/get-user-games/
+  
+  sample result:
+  ![image](https://user-images.githubusercontent.com/54679891/206166526-5955bb23-1acc-4eca-94d2-35833dea3b10.png)
+
+-get game status by id
+  command:
+  http get http://Alex:449@tuffix-vm/grab-game-by-id/7b4f3128-1449-4d52-b569-2a521c2be0e9
+  
+  sample result:
+  ![image](https://user-images.githubusercontent.com/54679891/206166892-b0eaf645-e8df-4921-8ec2-c49599f40eb6.png)
+
+  
 
