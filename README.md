@@ -9,6 +9,10 @@ Steps to run the project:
 
 0. Prepare your own litefs, and copy it to bin folder.
    Litefs is not provided in bin folder of this tar.
+   
+Note: if you use code downloaded from this repo, you need to add
+      mount & data directory manually. To avoid this, use the tar
+      provided in this repo.
 
 1. Copy the nginx configuration file to sites-enabled by running:
 
