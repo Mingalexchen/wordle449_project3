@@ -1,4 +1,7 @@
 # Wordle Backend Project 3
+- Test case examples are not provided in the tar. 
+- If you want to test endpoints without looking
+- into the code, refer to the end of this readme.
 
 Group 3 team members:
 Ming Chen
@@ -11,8 +14,8 @@ Steps to run the project:
    Litefs is not provided in bin folder of this tar.
    
 Note: if you use code downloaded from this repo, you need to add
-      mount & data directory manually. To avoid this, use the tar
-      provided in this repo.
+      mount & data directory manually. 
+      To avoid this, use the tar provided in this repo. 
 
 1. Copy the nginx configuration file to sites-enabled by running:
 
