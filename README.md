@@ -193,5 +193,17 @@ we can see that data is then being backuped in replica dbs
   sample result:
   ![image](https://user-images.githubusercontent.com/54679891/206166892-b0eaf645-e8df-4921-8ec2-c49599f40eb6.png)
 
-  
+
+  Note:   
+  Read replica is done by maintaining connections to three dbs and 
+  communicate to a db selected by cycle.next.  
+    
+    DB connection and teardown:  
+  ![image](https://user-images.githubusercontent.com/54679891/206172527-b04d25fd-becd-4424-b4cd-36e2de6916f2.png)  
+    
+    
+  sample DB selection:  
+  ![image](https://user-images.githubusercontent.com/54679891/206173218-7aa15c90-543f-4624-bc0d-5f2a7bfdebf7.png)
+
+
 
