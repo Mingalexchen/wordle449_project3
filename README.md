@@ -22,6 +22,8 @@ Note: if you use code downloaded from this repo, you need to add
 1. Copy the nginx configuration file to sites-enabled by running:
 
    sudo cp etc/tutorial.txt /etc/nginx/sites-enabled/tutorial
+   
+   Note:remember to reload nginx.
 
 2. Start the API by running
 
@@ -99,3 +101,61 @@ Files to turn in:
    primary.yml
    secondary.yml
    secondary2.yml- configuration files for litefs
+
+-Sample Test Cases Using httpie:
+
+registering an new account
+http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
+this creates an new account.
+
+sample output
+HTTP/1.1 201 
+content-length: 104
+content-type: application/json
+date: Wed, 07 Dec 2022 09:03:02 GMT
+server: hypercorn-h11
+
+{
+    "first_name": "alex",
+    "id": 1,
+    "last_name": "chen",
+    "password": "449",
+    "user_name": "Alex"
+}
+
+Use this account for auth afterwards.
+
+If you wish to access this endpoint as tuffix-vm/register/ without having to 
+use auth, remove 
+
+	location / {
+		#login popup
+		auth_request /auth;
+		auth_request_set $auth_status $upstream_status;
+  	}
+
+In tutorial.txt, and update nginx config again.
+
+The command would now be
+http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
+
+Sample output
+
+Connection: keep-alive
+Content-Length: 105
+Content-Type: application/json
+Date: Wed, 07 Dec 2022 09:04:38 GMT
+Server: nginx/1.18.0 (Ubuntu)
+
+{
+    "first_name": "alex",
+    "id": 2,
+    "last_name": "chen",
+    "password": "449",
+    "user_name": "Alexc"
+}
+
+
+
+
+
