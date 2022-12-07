@@ -102,26 +102,15 @@ Files to turn in:
    secondary.yml
    secondary2.yml- configuration files for litefs
 
--Sample Test Cases Using httpie:
+#Sample Test Cases Using httpie:
 
-registering an new account
+-registering an new account
+command
 http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
-this creates an new account.
 
 sample output
-HTTP/1.1 201 
-content-length: 104
-content-type: application/json
-date: Wed, 07 Dec 2022 09:03:02 GMT
-server: hypercorn-h11
+![image](https://user-images.githubusercontent.com/54679891/206137205-71d502ab-4fb2-43a7-b6db-5f5b2bcf1736.png)
 
-{
-    "first_name": "alex",
-    "id": 1,
-    "last_name": "chen",
-    "password": "449",
-    "user_name": "Alex"
-}
 
 Use this account for auth afterwards.
 
@@ -142,6 +131,23 @@ http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Al
 Sample output
 
 ![image](https://user-images.githubusercontent.com/54679891/206137019-76929821-8ad6-4660-a656-fea1da2164e0.png)
+
+
+-post a score to redis 
+command
+http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
+
+sample output
+![image](https://user-images.githubusercontent.com/54679891/206151156-5ad7ce80-8668-442e-92bf-817c0fc4b58a.png)
+
+-retrive top ten score
+command
+http get http://tuffix-vm/top-ten/
+
+sample output
+![image](https://user-images.githubusercontent.com/54679891/206151575-095e0265-19eb-416b-9dca-80c6fec3ac76.png)
+
+
 
 
 
