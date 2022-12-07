@@ -132,7 +132,7 @@ Sample result
 
 
 -post a score to redis 
-  command
+  command:
   http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
 
 sample result
