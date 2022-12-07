@@ -102,7 +102,7 @@ Files to turn in:
    secondary.yml
    secondary2.yml- configuration files for litefs
 
-#Sample Test Cases Using httpie:
+# Sample Test Cases Using httpie:
 
 - registering an new account   
   command:   
