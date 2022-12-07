@@ -8,10 +8,10 @@ Henry Chen
 -------------------------------------------------
 ***Important:   
 Test case examples are not provided in the tar. If you want to test endpoints without looking
-into the code, refer to the end of this readme. Because this code has been modified by a 
-number of people without proper communication, syntax and naming style are very confusing.
-In case you have hard time identifying what command to execute, refer to the end of this readme
-file, or contact me at mingalexchen@csu.fullerton.edu***
+into the code, refer to the end of this readme.   
+Because this code has been modified by a number of people without proper communication, 
+syntax and naming style are very confusing.In case you have hard time identifying what command 
+to execute, refer to the end of this readme file or contact me at mingalexchen@csu.fullerton.edu***
 -------------------------------------------------
 
 
