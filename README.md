@@ -104,9 +104,9 @@ Files to turn in:
 
 #Sample Test Cases Using httpie:
 
--registering an new account
-  command
-  http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
+- registering an new account
+    command
+    http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
 
 sample result
 ![image](https://user-images.githubusercontent.com/54679891/206137205-71d502ab-4fb2-43a7-b6db-5f5b2bcf1736.png)
