@@ -140,22 +140,8 @@ The command would now be
 http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
 
 Sample output
-'''
-Connection: keep-alive
-Content-Length: 105
-Content-Type: application/json
-Date: Wed, 07 Dec 2022 09:04:38 GMT
-Server: nginx/1.18.0 (Ubuntu)
 
-{
-    "first_name": "alex",
-    "id": 2,
-    "last_name": "chen",
-    "password": "449",
-    "user_name": "Alexc"
-}
-'''
-
+![image](https://user-images.githubusercontent.com/54679891/206137019-76929821-8ad6-4660-a656-fea1da2164e0.png)
 
 
 
