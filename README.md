@@ -145,7 +145,7 @@ Sample result
 sample result
 ![image](/endpoint_demo/leaderboard_post_score.png)
 
-###note: redis is not pre-populated. You need to add content into it yourself
+### note: redis is not pre-populated. You need to add content into it yourself
 
 
 - retrive top ten score   
@@ -206,4 +206,4 @@ we can see that data is then being backuped in replica dbs
 
 
   sample DB selection:  
-  ![image](/endpoint_demo/.png)
+  ![image](/endpoint_demo/read_replica_select.png)
