@@ -113,10 +113,10 @@ Files to turn in:
 
 - registering an new account   
   command:   
-    http http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
+    http post http://127.0.0.1:5000/users/ "first_name=alex" "last_name=chen" "user_name=Alex" "password=449"
 
 sample result
-![image](https://user-images.githubusercontent.com/54679891/206137205-71d502ab-4fb2-43a7-b6db-5f5b2bcf1736.png)
+![image](/endpoint_demo/game_register_1.png)
 
   Use this account for auth afterwards.
 
@@ -132,10 +132,10 @@ sample result
   In tutorial.txt, and update nginx config again.
 
    The command would now be   
-   http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
+   http post http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
 
 Sample result
-![image](https://user-images.githubusercontent.com/54679891/206137019-76929821-8ad6-4660-a656-fea1da2164e0.png)
+![image](/endpoint_demo/game_register_2.png)
 
 
 - post a score to redis   
@@ -143,24 +143,27 @@ Sample result
   http post http://tuffix-vm/add-score/ "user"="Alex clone1" "score"="1"
 
 sample result
-![image](https://user-images.githubusercontent.com/54679891/206151156-5ad7ce80-8668-442e-92bf-817c0fc4b58a.png)
+![image](/endpoint_demo/leaderboard_post_score.png)
+
+###note: redis is not pre-populated. You need to add content into it yourself
+
 
 - retrive top ten score   
   command:   
   http get http://tuffix-vm/top-ten/
 
 sample result
-![image](https://user-images.githubusercontent.com/54679891/206151575-095e0265-19eb-416b-9dca-80c6fec3ac76.png)
+![image](/endpoint_demo/leaderboard_topten.png)
 
 - start a new game   
   command:   
   http post http://Alex:449@tuffix-vm/new-game/
 
 sample result  
-![image](https://user-images.githubusercontent.com/54679891/206152409-3f8f3c1a-d594-41fc-aa5b-f8ee7e7fe6d9.png)
+![image](/endpoint_demo/game_newgame.png)
 
 we can see that data is then being backuped in replica dbs
-  ![image](https://user-images.githubusercontent.com/54679891/206152943-4dd2b0ec-4213-4eca-afad-4d8648e2882b.png)
+  ![image](/endpoint_demo/game_newgame_dbreplica.png)
 
 - make a move    
   command:   
@@ -170,7 +173,7 @@ we can see that data is then being backuped in replica dbs
   Using this command directly is very unlikely to give the same result.
 
   sample result:
-![image](https://user-images.githubusercontent.com/54679891/206163126-04c86b3b-40f1-4eca-8989-07e19d2638b0.png)
+![image](/endpoint_demo/game_make_a_move.png)
 
   Note2: original contributor of this project did not implement valid and
   correct word in the way it should be. API never checks if guess is a correct
@@ -184,14 +187,14 @@ we can see that data is then being backuped in replica dbs
   http get http://Alex:449@tuffix-vm/get-user-games/
 
   sample result:
-  ![image](https://user-images.githubusercontent.com/54679891/206166526-5955bb23-1acc-4eca-94d2-35833dea3b10.png)
+  ![image](/endpoint_demo/game_user_allgame.png)
 
 - get game status by id   
   command:   
   http get http://Alex:449@tuffix-vm/grab-game-by-id/7b4f3128-1449-4d52-b569-2a521c2be0e9
 
   sample result:
-  ![image](https://user-images.githubusercontent.com/54679891/206166892-b0eaf645-e8df-4921-8ec2-c49599f40eb6.png)
+  ![image](/endpoint_demo/game_game_by_id.png)
 
 
   Note:   
@@ -203,4 +206,4 @@ we can see that data is then being backuped in replica dbs
 
 
   sample DB selection:  
-  ![image](https://user-images.githubusercontent.com/54679891/206173218-7aa15c90-543f-4624-bc0d-5f2a7bfdebf7.png)
+  ![image](/endpoint_demo/.png)
