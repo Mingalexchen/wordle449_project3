@@ -9,9 +9,9 @@ Henry Chen
 ***Important:   
 Test case examples are not provided in the tar. If you want to test endpoints without looking
 into the code, refer to the end of this readme.   
-Because this code has been modified by a number of people without proper communication, 
-syntax and naming style are very confusing.In case you have hard time identifying what command 
-to execute, refer to Sample Test Cases Using httpie part of this readme file or contact me 
+Because this code has been modified by a number of people without proper communication,
+syntax and naming style are very confusing.In case you have hard time identifying what command
+to execute, refer to Sample Test Cases Using httpie part of this readme file or contact me
 at mingalexchen@csu.fullerton.edu***
 -------------------------------------------------
 
@@ -21,15 +21,15 @@ Steps to run the project:
 
 0. Prepare your own litefs, and copy it to bin folder.
    Litefs is not provided in bin folder of this tar.
-   
+
 Note: if you use code downloaded from this repo, you need to add
-      mount & data directory manually. 
-      To avoid this, use the tar provided in this repo. 
+      mount & data directory manually.
+      To avoid this, use the tar provided in this repo.
 
 1. Copy the nginx configuration file to sites-enabled by running:
 
    sudo cp etc/tutorial.txt /etc/nginx/sites-enabled/tutorial
-   
+
    Note:remember to reload nginx.
 
 2. Start the API by running
@@ -120,8 +120,8 @@ sample result
 
   Use this account for auth afterwards.
 
-  If you wish to access this endpoint as tuffix-vm/register/ without having to 
-  use auth, remove 
+  If you wish to access this endpoint as tuffix-vm/register/ without having to
+  use auth, remove
 
 	location / {
 		#login popup
@@ -130,7 +130,7 @@ sample result
   	}
 
   In tutorial.txt, and update nginx config again.
-   
+
    The command would now be   
    http http://tuffix-vm/register/ "first_name=alex" "last_name=chen" "user_name=Alexc" "password=449"
 
@@ -155,7 +155,7 @@ sample result
 - start a new game   
   command:   
   http post http://Alex:449@tuffix-vm/new-game/
-  
+
 sample result  
 ![image](https://user-images.githubusercontent.com/54679891/206152409-3f8f3c1a-d594-41fc-aa5b-f8ee7e7fe6d9.png)
 
@@ -166,15 +166,15 @@ we can see that data is then being backuped in replica dbs
   command:   
   http post http://Alex:449@tuffix-vm/game-guess/ "gameid"="7b4f3128-1449-4d52-b569-2a521c2be0e9" "word"="clomp"
 
-  Note: you will need to use an id that exist in your db to make a move. 
+  Note: you will need to use an id that exist in your db to make a move.
   Using this command directly is very unlikely to give the same result.
-  
+
   sample result:
 ![image](https://user-images.githubusercontent.com/54679891/206163126-04c86b3b-40f1-4eca-8989-07e19d2638b0.png)
 
   Note2: original contributor of this project did not implement valid and
-  correct word in the way it should be. API never checks if guess is a correct 
-  word and only checks if guess is the answer or if guess is a valid word. 
+  correct word in the way it should be. API never checks if guess is a correct
+  word and only checks if guess is the answer or if guess is a valid word.
   You may check this in game.py line 213-263.
   Due to the purpose of this project and time constrain, I did not try to
   fix this issue in afraid of causing more bugs that are hard to fix.
@@ -182,28 +182,25 @@ we can see that data is then being backuped in replica dbs
 - retrive in progress games   
   command:   
   http get http://Alex:449@tuffix-vm/get-user-games/
-  
+
   sample result:
   ![image](https://user-images.githubusercontent.com/54679891/206166526-5955bb23-1acc-4eca-94d2-35833dea3b10.png)
 
 - get game status by id   
   command:   
   http get http://Alex:449@tuffix-vm/grab-game-by-id/7b4f3128-1449-4d52-b569-2a521c2be0e9
-  
+
   sample result:
   ![image](https://user-images.githubusercontent.com/54679891/206166892-b0eaf645-e8df-4921-8ec2-c49599f40eb6.png)
 
 
   Note:   
-  Read replica is done by maintaining connections to three dbs and 
+  Read replica is done by maintaining connections to three dbs and
   communicate to a db selected by cycle.next.  
-    
+
     DB connection and teardown:  
-  ![image](https://user-images.githubusercontent.com/54679891/206172527-b04d25fd-becd-4424-b4cd-36e2de6916f2.png)  
-    
-    
+  ![image](/endpoint_demo/read_replica_conne.png)  
+
+
   sample DB selection:  
   ![image](https://user-images.githubusercontent.com/54679891/206173218-7aa15c90-543f-4624-bc0d-5f2a7bfdebf7.png)
-
-
-
